@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import {
   Button,
   Form,
@@ -11,21 +12,25 @@ export default function Header() {
   return (
     <header>
       <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
-        <Navbar.Brand href="#home">My Travel Blog</Navbar.Brand>
+        <Link href="/" passHref>
+          <Navbar.Brand>My Travel Blog</Navbar.Brand>
+        </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/about-us">Contact Us</Nav.Link>
-            <Nav.Link href="/contact-us">About Us</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">
-                Destinations
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Something</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">
-                Something else
-              </NavDropdown.Item>
+            <Link href="/" passHref>
+              <Nav.Link>Home</Nav.Link>
+            </Link>
+            <Link href="/about" passHref>
+              <Nav.Link>About</Nav.Link>
+            </Link>
+            <NavDropdown title="Destinations" id="basic-nav-dropdown">
+              <Link href="/about" passHref>
+                <NavDropdown.Item>Something</NavDropdown.Item>
+              </Link>{' '}
+              <Link href="/about" passHref>
+                <NavDropdown.Item>Something else</NavDropdown.Item>
+              </Link>
             </NavDropdown>
           </Nav>
           <Form inline>
