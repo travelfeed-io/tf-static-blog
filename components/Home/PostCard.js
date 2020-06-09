@@ -1,27 +1,22 @@
-export default function PostCard() {
+import Link from 'next/link';
+
+export default function PostCard({ post }) {
   return (
     <div className="col-md-4">
       <div className="card mb-4 shadow-sm">
-        <img
-          className="card-img-top"
-          src="https://via.placeholder.com/300x150"
-          alt="Thumbnail"
-        />
+        <img className="card-img-top" src={post.thumbnail} alt="Thumbnail" />
         <div className="card-body">
-          <p className="card-text">
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer.
-          </p>
+          <h3 className="card-title h5">{post.title}</h3>
+          <p className="card-text">{post.excerpt}</p>
           <div className="d-flex justify-content-between align-items-center">
             <div className="btn-group">
-              <button
-                type="button"
-                className="btn btn-sm btn-outline-secondary"
-              >
-                View
-              </button>
+              <Link href="/[permlink]" as={`/${post.permlink}`}>
+                <a className="btn btn-sm btn-outline-secondary">View</a>
+              </Link>
             </div>
-            <small className="text-muted">9 mins</small>
+            <small className="text-muted">
+              {Math.round(post.readTime)} mins
+            </small>
           </div>
         </div>
       </div>

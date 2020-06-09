@@ -1,12 +1,12 @@
 import PostCard from './PostCard';
 
-export default function PostList() {
+export default function PostList({ posts }) {
   return (
     <div className="bg-light">
       <div className="container">
         <div className="row">
-          {[0, 1, 2, 3, 4, 5].map(() => (
-            <PostCard />
+          {posts.map(post => (
+            <PostCard post={post} />
           ))}
         </div>
       </div>

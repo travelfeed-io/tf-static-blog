@@ -11,5 +11,7 @@ module.exports = {
     'react/prop-types': ['off'],
     'react/jsx-props-no-spreading': ['off'],
     'react/no-unescaped-entities': ['off'],
+    'react/destructuring-assignment': ['off'],
+    'jsx-a11y/anchor-is-valid': ['off'],
   },
 };

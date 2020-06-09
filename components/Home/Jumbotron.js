@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 export default function Jumbotron() {
   return (
     <section className="jumbotron text-center">
