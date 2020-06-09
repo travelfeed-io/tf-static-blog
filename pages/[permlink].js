@@ -1,5 +1,6 @@
 import gql from 'graphql-tag';
 import Wrapper from '../components/Layout/Wrapper';
+import Body from '../components/Post/Body';
 import graphQLClient from '../helpers/graphQLClient';
 
 const GET_POST = gql`
@@ -7,6 +8,9 @@ const GET_POST = gql`
     post(permlink: $permlink) {
       title
       body
+      author {
+        username
+      }
     }
   }
 `;
@@ -25,7 +29,7 @@ export default function Post({ post }) {
       <div className="bg-light">
         <div className="container h-100 p-5">
           <h1>{post.title}</h1>
-          {post.body}
+          <Body body={post.body} user={post.author.username} />
         </div>
       </div>
     </Wrapper>

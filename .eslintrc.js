@@ -13,5 +13,9 @@ module.exports = {
     'react/no-unescaped-entities': ['off'],
     'react/destructuring-assignment': ['off'],
     'jsx-a11y/anchor-is-valid': ['off'],
+    'no-param-reassign': ['off'],
+    'consistent-return': ['off'],
+    'jsx-a11y/interactive-supports-focus': ['off'],
+    'jsx-a11y/iframe-has-title': ['off'],
   },
 };

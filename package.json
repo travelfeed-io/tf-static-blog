@@ -10,6 +10,7 @@
     "prettier": "prettier --write '**/*.js'"
   },
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
     "bootstrap": "^4.5.0",
     "bs58": "^4.0.1",
     "graphql": "^15.1.0",
@@ -18,7 +19,16 @@
     "next": "9.4.4",
     "react": "16.13.1",
     "react-bootstrap": "^1.0.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "html-react-parser": "^0.13.0",
+    "react-image-gallery": "^1.0.7",
+    "react-images": "^1.1.7",
+    "react-instagram-embed": "^1.5.0",
+    "react-lazyload": "^2.6.7",
+    "react-loading-skeleton": "^2.1.1",
+    "react-photo-gallery": "^8.0.0",
+    "react-progressive-image": "^0.6.0",
+    "speakingurl": "^14.0.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
