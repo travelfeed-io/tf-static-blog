@@ -7,13 +7,14 @@ import {
   Navbar,
   NavDropdown,
 } from 'react-bootstrap';
+import { config } from '../../config';
 
 export default function Header() {
   return (
     <header>
       <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
         <Link href="/" passHref>
-          <Navbar.Brand>My Travel Blog</Navbar.Brand>
+          <Navbar.Brand>{config.blogTitle}</Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -21,9 +22,16 @@ export default function Header() {
             <Link href="/" passHref>
               <Nav.Link>Home</Nav.Link>
             </Link>
-            <Link href="/about" passHref>
-              <Nav.Link>About</Nav.Link>
-            </Link>
+            {config.pages &&
+              config.pages.map(({ showInNavbar, permlink, title }) => {
+                if (showInNavbar)
+                  return (
+                    <Link href="/[permlink]" as={`/${permlink}`} passHref>
+                      <Nav.Link>{title}</Nav.Link>
+                    </Link>
+                  );
+                return <></>;
+              })}
             <NavDropdown title="Destinations" id="basic-nav-dropdown">
               <Link href="/about" passHref>
                 <NavDropdown.Item>Something</NavDropdown.Item>

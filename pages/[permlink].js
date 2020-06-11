@@ -1,6 +1,7 @@
 import gql from 'graphql-tag';
 import Wrapper from '../components/Layout/Wrapper';
 import Body from '../components/Post/Body';
+import { config } from '../config';
 import graphQLClient from '../helpers/graphQLClient';
 
 const GET_POST = gql`
@@ -29,7 +30,10 @@ export default function Post({ post }) {
       <div className="bg-light">
         <div className="container h-100 p-5">
           <h1>{post.title}</h1>
-          <Body body={post.body} user={post.author.username} />
+          <Body
+            body={post.body}
+            user={post.isPage ? undefined : post.author.username}
+          />
         </div>
       </div>
     </Wrapper>
@@ -37,8 +41,13 @@ export default function Post({ post }) {
 }
 
 export function getStaticPaths() {
+  const paths = [];
+  if (config.pages) {
+    config.pages.forEach(page => {
+      paths.push({ params: { permlink: page.permlink } });
+    });
+  }
   return graphQLClient(GET_POST_PERMLINKS).then(({ posts }) => {
-    const paths = [];
     if (posts && posts.length > 0)
       posts.forEach(({ permlink }) => {
         paths.push({ params: { permlink } });
@@ -53,6 +62,12 @@ export function getStaticPaths() {
 export function getStaticProps(props) {
   const { permlink } = props.params;
   return graphQLClient(GET_POST, { permlink }).then(({ post }) => {
+    if (!post)
+      config.pages.forEach(page => {
+        if (page.permlink === permlink) {
+          post = { isPage: true, ...page };
+        }
+      });
     return {
       props: { post },
     };

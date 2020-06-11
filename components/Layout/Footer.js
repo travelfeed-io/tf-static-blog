@@ -1,3 +1,6 @@
+import Link from 'next/link';
+import { config } from '../../config';
+
 export default function Footer() {
   return (
     <footer className="footer mt-auto py-3 bg-dark">
@@ -11,7 +14,20 @@ export default function Footer() {
             rel="noopener noreferrer"
           >
             Create your own free travel blog!
-          </a>
+          </a>{' '}
+          {config.pages &&
+            config.pages.map(({ showInFooter, permlink, title }) => {
+              if (showInFooter)
+                return (
+                  <>
+                    {'| '}
+                    <Link href="/[permlink]" as={`/${permlink}`}>
+                      <a>{title}</a>
+                    </Link>
+                  </>
+                );
+              return <></>;
+            })}
         </span>
       </div>
     </footer>
