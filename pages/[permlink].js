@@ -6,7 +6,7 @@ import graphQLClient from '../helpers/graphQLClient';
 
 const GET_POST = gql`
   query post($permlink: String!) {
-    post(permlink: $permlink) {
+    post(permlink: $permlink, countryCode: "gh") {
       title
       body
       author {

@@ -1,7 +1,7 @@
 module.exports = {
   config: {
-    blogTitle: 'My Travel Blog',
-    blogSlogan: 'All about travel',
+    blogTitle: 'For 91 days in Ghana',
+    blogSlogan: `A simple example project of a TravelFeed-powered static blog`,
     pages: [
       {
         title: 'About Us',

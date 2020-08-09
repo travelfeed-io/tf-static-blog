@@ -6,7 +6,7 @@ import graphQLClient from '../helpers/graphQLClient';
 
 const GET_POSTS = gql`
   query posts {
-    posts(limit: 1000) {
+    posts(limit: 1000, countryCode: "gh") {
       title
       permlink
       excerpt
