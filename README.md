@@ -2,6 +2,8 @@
 
 Your free travel blog, powered by TravelFeed and ready to be deployed on your own domain!
 
+Deployed example project: https://staticdemo.travelfeed.io/
+
 ## Deploy to Vercel
 
 [![Deploy to Vercel](https://zeit.co/button)](https://zeit.co/new/project?template=https://github.com/travelfeed-io/tf-static-blog)
